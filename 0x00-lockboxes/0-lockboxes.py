@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
     for i in range(len(boxes)):
         for j in boxes[i]:
             if j is not i:
-                try: 
+                try:
                     my_boxes[j] = 1
                 except IndexError:
                     pass
