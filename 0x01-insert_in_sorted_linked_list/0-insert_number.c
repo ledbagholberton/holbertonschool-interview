@@ -14,6 +14,7 @@ listint_t *insert_node(listint_t **head, int number)
     listint_t *past;
 
     current = *head;
+    past = *head;
 
     new = malloc(sizeof(listint_t));
     if (new == NULL)
@@ -24,14 +25,22 @@ listint_t *insert_node(listint_t **head, int number)
 
     if (*head == NULL)
         *head = new;
+    else if (current->next == NULL && current->n > number)
+    {
+        new->next = current;
+        *head = new;
+    }
     else
     {
-        while (current->n <= number)
+        while (current->n < number || current->next != NULL)
+        {
             past = current;
             current = current->next;
+            printf("En el loop %i\n", current->n);
+        }
         past->next = new;
-        new->next = current;
+        if (current != NULL)
+            new->next = current;
     }
-
     return (new);
 }
