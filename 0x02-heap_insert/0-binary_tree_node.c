@@ -3,39 +3,20 @@
 #include "binary_trees.h"
 
 /**
- * main - Entry point
- *
- * Return: 0 on success, error code on failure
+ * binary_tree_node - function that creates a binary tree node
+ * @value: Integer with the value in node created
+ * @parent: is a pointer to the parent node of the node to create   
+ * Return: pointer to the new node, or NULL on failure
  */
-int main(void)
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-    heap_t *root;
-    heap_t *node;
+    binary_tree_t *new;
 
-    root = NULL;
-    node = heap_insert(&root, 98);
-    printf("Inserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 402);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 12);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 46);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 128);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 256);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 512);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    node = heap_insert(&root, 50);
-    printf("\nInserted: %d\n", node->n);
-    binary_tree_print(root);
-    return (0);
+    new = malloc(sizeof(binary_tree_t));
+	if (new == NULL)
+		return (NULL);
+    
+    new->n = value;
+    new->parent = parent;
+    return(new);
 }
