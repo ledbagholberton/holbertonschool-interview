@@ -1,4 +1,21 @@
 #include "binary_trees.h"
+
+/**
+ * binary_tree_is_perfect - checks if a binary tree is perfect (complete&BF=1)
+ * @tree: pointer to the node
+ * Return: 1 if it is perfect 0 otherwise
+ **/
+int binary_tree_is_perfect(const binary_tree_t *tree)
+{
+	if (!tree)
+		return (0);
+	if ((!tree->left && !tree->right) || ((binary_tree_is_perfect(tree->left)
+	    == 1 && binary_tree_is_perfect(tree->right) == 1) && _height(tree->left)
+	    == _height(tree->right)))
+		return (1);
+	return (0);
+}
+
 /**
  * binary_tree_node - creates a node in the binary tree
  * @parent: pointer to a parent node
@@ -17,34 +34,6 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	node->left = NULL;
 	node->right = NULL;
 	return (node);
-}
-
-/**
- * preorder - goes through a binary tree using pre-order traversal
- * @last_node: double pointer to find the last node
- * @tree: pointer to the root
- * @level: level to print
- * @ref: reference to start
- * @flag: only work for first match
- * Return: no return
- **/
-void preorder(heap_t *tree, int level, int ref, heap_t **last_node, int *flag)
-{
-	if (!tree)
-		return;
-	if (level == ref)
-	{
-		last_node[0] = tree;
-	}
-	if (level - 1 == ref && binary_tree_is_leaf(tree) == 1 && *flag == 0)
-	{
-		last_node[1] = tree;
-		*flag = 1;
-	}
-	if (tree->left)
-		preorder(tree->left, level, ref + 1, last_node, flag);
-	if (tree->right)
-		preorder(tree->right, level, ref + 1, last_node, flag);
 }
 
 /**
@@ -112,4 +101,4 @@ size_t _height(const binary_tree_t *tree)
 		return (left);
 	else
 		return (right);
-}clear
+}

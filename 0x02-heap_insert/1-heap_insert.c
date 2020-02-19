@@ -15,22 +15,6 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 }
 
 /**
- * binary_tree_is_perfect - checks if a binary tree is perfect (complete&BF=1)
- * @tree: pointer to the node
- * Return: 1 if it is perfect 0 otherwise
- **/
-int binary_tree_is_perfect(const binary_tree_t *tree)
-{
-	if (!tree)
-		return (0);
-	if ((!tree->left && !tree->right) || ((binary_tree_is_perfect(tree->left)
-	    == 1 && binary_tree_is_perfect(tree->right) == 1) && _height(tree->left)
-	    == _height(tree->right)))
-		return (1);
-	return (0);
-}
-
-/**
  * binary_tree_sibling - which is the sibling?
  * @node: pointer to the node
  * Return: pointer to sibling
