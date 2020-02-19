@@ -1,5 +1,5 @@
-#ifndef BINARYTREES_H
-#define BINARYTREES_H
+#ifndef HEAP_H
+#define HEAP_H
 #include <stdlib.h>
 
 /**
@@ -27,4 +27,4 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 size_t _height(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 
-#endif /* BINARYTREES_H */
+#endif
