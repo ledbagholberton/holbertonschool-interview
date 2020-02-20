@@ -91,7 +91,7 @@ void levelorder(heap_t *tree, heap_t **last_node)
 
 	if (!tree)
 		return;
-	h = _height(tree);
+	h = height(tree);
 	for (i = 0; i <= h; i++)
 	{
 		preorder(tree, i, 0, last_node, &flag);
