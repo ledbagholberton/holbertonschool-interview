@@ -82,23 +82,3 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	return (node);
 }
 
-/**
- * _height - measures the height of a binary tree
- * @tree: pointer to the node
- * Return: height of the tree from node
- **/
-size_t _height(const binary_tree_t *tree)
-{
-	size_t left, right;
-
-	if (!tree)
-		return (0);
-	if (!tree->left && !tree->right)
-		return (0);
-	right = _height(tree->right) + 1;
-	left = _height(tree->left) + 1;
-	if (left > right)
-		return (left);
-	else
-		return (right);
-}

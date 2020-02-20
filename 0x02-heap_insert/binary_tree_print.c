@@ -44,22 +44,25 @@ int print_t(const binary_tree_t *tree, int offset, int depth, char **s)
 }
 
 /**
- * _height - Measures the height of a binary tree
- *
- * @tree: Pointer to the node to measures the height
- *
- * Return: The height of the tree starting at @node
-
+ * _height - measures the height of a binary tree
+ * @tree: pointer to the node
+ * Return: height of the tree from node
+ **/
 size_t _height(const binary_tree_t *tree)
 {
-	size_t height_l;
-	size_t height_r;
+	size_t left, right;
 
-	height_l = tree->left ? 1 + _height(tree->left) : 0;
-	height_r = tree->right ? 1 + _height(tree->right) : 0;
-	return (height_l > height_r ? height_l : height_r);
+	if (!tree)
+		return (0);
+	if (!tree->left && !tree->right)
+		return (0);
+	right = _height(tree->right) + 1;
+	left = _height(tree->left) + 1;
+	if (left > right)
+		return (left);
+	else
+		return (right);
 }
-*/
 
 /**
  * binary_tree_print - Prints a binary tree
