@@ -12,7 +12,7 @@ def minOperations(n):
     if n < 2:
         return 0
     i = 2
-    while (i<=n):
+    while (i <= n):
         while (n % i == 0):
             cost += i
             n = n/i
