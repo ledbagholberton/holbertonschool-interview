@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """
-Main file for testing
+FUnction minOperations calculations
 """
 
 
 def minOperations(n):
     """Function minOperations"""
     cost = 0
+    if type(n) is not int:
+        return 0
     if n <= 0 or type(n) is not int:
         return 0
     while (n > 0):
@@ -20,4 +22,4 @@ def minOperations(n):
             else:
                 cost = cost + temp
             n = n / 2
-    return cost
+    return int(cost)
