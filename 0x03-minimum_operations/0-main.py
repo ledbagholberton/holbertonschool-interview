@@ -23,5 +23,5 @@ print("Min number of operations to reach {} characters: {}".format(n, minOperati
 n = 2000
 print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
 
-n = 42
+n = 50
 print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
