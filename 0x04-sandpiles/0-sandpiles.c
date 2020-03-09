@@ -13,7 +13,7 @@
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j, a;
+	int i, j, a = 0;
 
 	for (i = 0; i < 3; i++)
 	{
@@ -22,11 +22,21 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			grid1[i][j] = grid1[i][j] + grid2[i][j];
 		}
 	}
+	printf("=\n");
+	print_grid(grid1);
 	a = is_not_stable(grid1);
-	while (a == 1)
+	if (a != 0)
 	{
-		toople(grid1);
-		a = is_not_stable(grid1);
+		while (a != 0)
+		{
+			toople(grid1);
+			a = is_not_stable(grid1);
+			if (a != 0)
+			{
+				printf("=\n");
+				print_grid(grid1);
+			}
+		}
 	}
 }
 
@@ -62,22 +72,32 @@ int is_not_stable(int grid1[3][3])
  */
 void toople(int grid1[3][3])
 {
-	int i, j;
+	int i, j, may[3][3];
 
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
 			if (grid1[i][j] > 3)
+				may[i][j] = 1;
+			else
+				may[i][j] = 0;
+		}
+	}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (may[i][j] == 1)
 			{
 				grid1[i][j] = grid1[i][j] - 4;
 				if (i - 1 >= 0)
 					grid1[i - 1][j] = grid1[i - 1][j] + 1;
-				if (i + 1 < 3)
+				if (i + 1 <= 2)
 					grid1[i + 1][j] = grid1[i + 1][j] + 1;
 				if (j - 1 >= 0)
 					grid1[i][j - 1] = grid1[i][j - 1] + 1;
-				if (j + 1 < 3)
+				if (j + 1 <= 2)
 					grid1[i][j + 1] = grid1[i][j + 1] + 1;
 			}
 		}
