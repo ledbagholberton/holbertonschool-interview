@@ -16,8 +16,8 @@ typedef struct listint_s
 } listint_t;
 
 void reverse(listint_t ** head_ref);
-listint_t middle(listint_t **head);
-int comparison(listint_t *head1, listint_t *head2);
+listint_t *middle(listint_t **head);
+int comparison(listint_t **head1, listint_t *head2);
 int is_palindrome(listint_t **head);
 size_t print_listint(const listint_t *h);
 listint_t *add_nodeint_end(listint_t **head, const int n);

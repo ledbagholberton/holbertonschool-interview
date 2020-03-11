@@ -27,7 +27,7 @@ void reverse(listint_t ** head_ref)
 * @head_ref: pointer to head
 * Return pointer to middle list
 */
-listint_t middle(listint_t **head)
+listint_t *middle(listint_t **head)
 {
     listint_t *fast = *head;
     listint_t *slow = *head;
@@ -36,7 +36,7 @@ listint_t middle(listint_t **head)
         slow = slow->next;
         fast = fast->next->next;
     }
-    return (*slow);
+    return (slow);
 }
 
 /**
@@ -45,15 +45,15 @@ listint_t middle(listint_t **head)
 * @head2: pointer to head list 2
 * Return 1 if both list are equal / 0 other cases
 */
-int comparison(listint_t *head1, listint_t *head2)
+int comparison(listint_t **head1, listint_t *head2)
 {
     while (head2 != NULL)
         {
-            if (head1->n != head2->n)
+            if ((*head1)->n != head2->n)
                 return (0);
             else
                 {
-                    head1 = head1->next;
+                    *head1 = (*head1)->next;
                     head2 = head2->next;
                 }
         }
@@ -69,9 +69,9 @@ int is_palindrome(listint_t **head)
 {
     listint_t *my_middle;
 
-    if (*head == NULL)
+    if ((*head) == NULL)
         return (1);
-    my_middle = middle(**head);
-    reverse (my_middle);
-    return (comparation(head, my_middle))
+    my_middle = middle(head);
+    reverse(&my_middle);
+    return(comparison(head, my_middle));
 }
