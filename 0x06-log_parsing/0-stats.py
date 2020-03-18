@@ -1,6 +1,8 @@
 #!/usr/bin/python
+"""Functio log parsing"""
 import sys
 import re
+
 
 count = 0
 total_size = 0
