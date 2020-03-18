@@ -22,9 +22,9 @@ try:
         if count == 10:
             print("File size: {}".format(total_size))
             for k, v in sorted(dict_error.items()):
-                print (k, v)
+                print(k, v)
             count = 0
 except KeyboardInterrupt:
-        print("File size: {}".format(total_size))
-        for k, v in sorted(dict_error.items()):
-            print (k, v)
+    print("File size: {}".format(total_size))
+    for k, v in sorted(dict_error.items()):
+        print(k, v)
