@@ -28,4 +28,4 @@ try:
 except KeyboardInterrupt:
     print("File size: {}".format(total_size))
     for k, v in sorted(dict_error.items()):
-        print(k, v)
+        print("{}: {}".format(k, v))
