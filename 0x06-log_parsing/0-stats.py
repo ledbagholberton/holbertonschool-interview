@@ -7,6 +7,7 @@ import re
 count = 0
 total_size = 0
 dict_error = {}
+parsed_data = []
 try:
     for data in sys.stdin:
         parsed_data = re.split(r'[-+#\s*$ ]', data)
