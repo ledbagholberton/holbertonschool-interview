@@ -1,5 +1,5 @@
-"""#!/usr/bin/python3"""
-"""Functio log parsing"""
+#!/usr/bin/python3
+"""Function log parsing"""
 import sys
 import re
 
