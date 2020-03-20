@@ -7,6 +7,7 @@ import re
 count = 0
 total_size = 0
 dict_error = {}
+dict_list = ['200', '301', '400', '401', '403', '404', '405', '500']
 parsed_data = []
 try:
     for data in sys.stdin:
@@ -17,19 +18,17 @@ try:
             size_file = int(parsed_data[size_parsed - 2])
             total_size += size_file
             error = parsed_data[size_parsed - 3]
-            if error in dict_error:
-                dict_error[error] += 1
-            else:
-                dict_error[error] = 1
+            if error in dict_list:
+                if error in dict_error:
+                    dict_error[error] += 1
+                else:
+                    dict_error[error] = 1
         if count == 10:
             print("File size: {}".format(total_size))
             for k, v in sorted(dict_error.items()):
                 print("{}: {}".format(k, v))
             count = 0
-    print("File size: {}".format(total_size))
-    for k, v in sorted(dict_error.items()):
-        print("{}: {}".format(k, v))
-except KeyboardInterrupt:
+finally:
     print("File size: {}".format(total_size))
     for k, v in sorted(dict_error.items()):
         print("{}: {}".format(k, v))
