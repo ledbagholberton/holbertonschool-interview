@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+"""#!/usr/bin/python3"""
 """Functio log parsing"""
 import sys
 import re
