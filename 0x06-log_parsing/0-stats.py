@@ -24,12 +24,12 @@ try:
         if count == 10:
             print("File size: {}".format(total_size))
             for k, v in sorted(dict_error.items()):
-                print("{}:{}".format(k, v))
+                print("{}: {}".format(k, v))
             count = 0
     print("File size: {}".format(total_size))
     for k, v in sorted(dict_error.items()):
-        print("{}:{}".format(k, v))
+        print("{}: {}".format(k, v))
 except KeyboardInterrupt:
     print("File size: {}".format(total_size))
     for k, v in sorted(dict_error.items()):
-        print("{}:{}".format(k, v))
+        print("{}: {}".format(k, v))
