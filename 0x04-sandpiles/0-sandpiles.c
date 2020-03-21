@@ -103,22 +103,23 @@ void toople(int grid1[3][3])
 		}
 	}
 }
-/** 
+/**
  *pgrid - function print
  *
  *Return: No return
  */
 void pgrid(int grid[3][3])
 {
-  int i, j;
-  for (i = 0; i < 3; i++)
-    {
-      for (j = 0; j < 3; j++)
+	int i, j;
+
+	for (i = 0; i < 3; i++)
 	{
-	  if (j)
-	    printf(" ");
-	  printf("%d", grid[i][j]);
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+			printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
 	}
-      printf("\n");
-    }
 }
