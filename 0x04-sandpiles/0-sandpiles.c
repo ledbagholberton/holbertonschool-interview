@@ -23,7 +23,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 		}
 	}
 	printf("=\n");
-	print_grid(grid1);
+	pgrid(grid1);
 	a = is_not_stable(grid1);
 	if (a != 0)
 	{
@@ -34,7 +34,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			if (a != 0)
 			{
 				printf("=\n");
-				print_grid(grid1);
+				pgrid(grid1);
 			}
 		}
 	}
@@ -102,4 +102,23 @@ void toople(int grid1[3][3])
 			}
 		}
 	}
+}
+/** 
+ *pgrid - function print
+ *
+ *Return: No return
+ */
+void pgrid(int grid[3][3])
+{
+  int i, j;
+  for (i = 0; i < 3; i++)
+    {
+      for (j = 0; j < 3; j++)
+	{
+	  if (j)
+	    printf(" ");
+	  printf("%d", grid[i][j]);
+	}
+      printf("\n");
+    }
 }
