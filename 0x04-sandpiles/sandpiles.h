@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #ifndef sandpiles_h_
 #define sandpiles_h_
 #include <stdlib.h>
