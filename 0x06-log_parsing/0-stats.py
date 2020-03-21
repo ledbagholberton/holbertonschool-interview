@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Function log parsing"""
+"""Function log parsing
+Change to include executable file
+"""
 import sys
 import re
 
