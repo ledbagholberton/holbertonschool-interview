@@ -12,7 +12,6 @@ to handle the 8 least significant bits of each integer
 def validUTF8(data):
     """ Funtion UTF-8 """
     flag = 0
-    """flag = 1 si es uno de un byte"""
     for i in range(len(data)):
         dato = data[i]
         if dato < 128:
@@ -28,10 +27,8 @@ def validUTF8(data):
                 else:
                     flag = flag - 1
             else:
-                if dato < 128:
-                    return False
                 if dato >= 128 and dato < 192:
-                    flag = 0
+                    continue
                 if dato >= 192 and dato < 224:
                     flag = 1
                 if dato >= 224 and dato < 240:

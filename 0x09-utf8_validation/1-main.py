@@ -37,6 +37,6 @@ data7 = [241, 129, 129, 192]
 print("7-expected false")
 print(validUTF8(data7))
 
-data8 = data1 + data2 + data4 +data5 +data6
+data8 = data1 + data2 + data4 + data5 + data6
 print("8-expected true")
 print(validUTF8(data8))
