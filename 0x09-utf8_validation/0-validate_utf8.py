@@ -22,15 +22,20 @@ def validUTF8(data):
                 return False
         else:
             if flag > 0:
-                dato = (dato & 0b11000000) ^ (0b01111111)
-                if dato != 0:
+                b = dato & 192
+                if b != 128:
                     return False
                 else:
                     flag = flag - 1
             else:
-                a = int(bin(dato), 2)
-                flag = flag + 1
-                while a & 0b1000000 != 0:
-                    a = a << 1
-                    flag = flag + 1
+                if dato < 128:
+                    return False
+                if dato >= 128 and dato < 192:
+                    flag = 0
+                if dato >= 192 and dato < 224:
+                    flag = 1
+                if dato >= 224 and dato < 240:
+                    flag = 2
+                if dato >= 240:
+                    flag = 3
     return (True)
