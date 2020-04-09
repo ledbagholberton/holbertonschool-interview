@@ -35,4 +35,6 @@ def validUTF8(data):
                     flag = 2
                 if dato >= 240:
                     flag = 3
+    if flag != 0:
+        return False
     return (True)
