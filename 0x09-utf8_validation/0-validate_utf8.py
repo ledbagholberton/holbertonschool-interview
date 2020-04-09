@@ -13,7 +13,7 @@ def validUTF8(data):
     """ Funtion UTF-8 """
     flag = 0
     for i in range(len(data)):
-        dato = data[i]
+        dato = data[i] & 0xff
         if dato < 128:
             if flag == 0:
                 continue
