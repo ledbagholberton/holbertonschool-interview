@@ -13,20 +13,20 @@ def validUTF8(data):
     """ Funtion UTF-8 """
     flag = 0
     for i in data:
-        dato = i & 0x00ff
+        dato = i & 0xff
         if flag == 0:
-            if dato > 128 and dato < 192:
-                return False
             if dato >= 192 and dato < 224:
                 flag = 1
             if dato >= 224 and dato < 240:
                 flag = 2
-            if dato >= 240:
+            if dato >= 240 and dato < 248:
                 flag = 3
-        else:
-            if dato < 128:
+            if dato >= 128 and dato < 192:
                 return False
-            flag = flag-1 
+        else:
+            if not (dato >= 128 and dato < 192):
+                return False
+            flag = flag-1
     if flag != 0:
         return(False)
     return(True)
