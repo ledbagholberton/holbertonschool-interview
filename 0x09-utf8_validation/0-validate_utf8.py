@@ -14,27 +14,19 @@ def validUTF8(data):
     flag = 0
     for i in data:
         dato = i & 0x00ff
-        if dato < 128:
-            if flag == 0:
-                continue
-            else:
+        if flag == 0:
+            if dato > 128 and dato < 192:
                 return False
+            if dato >= 192 and dato < 224:
+                flag = 1
+            if dato >= 224 and dato < 240:
+                flag = 2
+            if dato >= 240:
+                flag = 3
         else:
-            if flag > 0:
-                b = dato & 192
-                if b != 128:
-                    return False
-                else:
-                    flag = flag - 1
-            else:
-                if dato >= 128 and dato < 192:
-                    continue
-                if dato >= 192 and dato < 224:
-                    flag = 1
-                if dato >= 224 and dato < 240:
-                    flag = 2
-                if dato >= 240:
-                    flag = 3
+            if dato < 128:
+                return False
+            flag = flag-1 
     if flag != 0:
-        return False
-    return (True)
+        return(False)
+    return(True)
