@@ -13,53 +13,40 @@
 int slide_line(int *line, size_t size, int direction)
 {
 	int array1[32];
-	size_t i, j;
+	size_t i, j = 0;
 
 	for (i = 0; i < size; i++)
-		array1[i] = 1;
-	if (direction == 1)
-		left_array1(array1, line, size);
+	array1[i] = 1;
+	if (direction != SLIDE_LEFT && direction != SLIDE_RIGHT)
+	return (0);
+	if (direction == SLIDE_LEFT)
+	left_array1(array1, line, size);
 	else
-		right_array1(array1, line, size);
+	right_array1(array1, line, size);
 	for (i = 0; i < size; i++)
-		array1[i] = array1[i] * line[i];
+	array1[i] = array1[i] * line[i];
 	for (i = 0; i < size; i++)
-		line[i] = 0;
-	if (direction == 1)
+	line[i] = 0;
+	if (direction == SLIDE_LEFT)
 	{
 		for (i = 0; i < size; i++)
-			if (array1[i] != 0)
+		if (array1[i] != 0)
 			{
-				line[j] = array1[i];
-				j = j + 1;
+			line[j] = array1[i];
+			j = j + 1;
 			}
 	}
 	else
 	{
 		j = size;
 		for (i = size; (int) i >= 0; i--)
-			if (array1[i] != 0)
+		if (array1[i] != 0)
 			{
-				line[j] = array1[i];
-				j = j - 1;
+			line[j] = array1[i];
+			j = j - 1;
 			}
 	}
 	return (1);
-}
-
-/**
- * print_array1 - Prints out an array of integer, followed by a new line
- * @array: Pointer to the array of integer to be printed
- * @size: Number of elements in @array
- */
-void print_array1(int const *array, size_t size)
-{
-	size_t i;
-
-	printf("&&&&: ");
-	for (i = 0; i < size; i++)
-		printf("%s%d", i > 0 ? ", " : "", array[i]);
-	printf("\n");
 }
 
 /**
