@@ -26,12 +26,12 @@ int advanced_binary(int *array, size_t size, int value)
 		return (-1);
 	med_size = (size - 1) / 2;
 	if (array[med_size] == value)
-		{
-			if (med_size == 0)
-				return ((int)med_size);
-			if (array[med_size - 1] < value)
-				return ((int)med_size);
-		}
+	{
+		if (med_size == 0)
+			return ((int)med_size);
+		if (array[med_size - 1] < value)
+			return ((int)med_size);
+	}
 	if (array[med_size] < value)
 	{
 		b = b + med_size + 1;
