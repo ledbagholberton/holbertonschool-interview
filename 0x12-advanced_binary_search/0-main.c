@@ -21,10 +21,10 @@ int main(void)
 	printf("Found %d at index: %d\n\n", 12, advanced_binary(array, size, 12));
 	printf("Found %d at index: %d\n\n", 25, advanced_binary(array, size, 25));
 	printf("Found %d at index: %d\n\n", 30, advanced_binary(array, size, 30));
-	/**printf("Found %d at index: %d\n\n", 32, advanced_binary(array, size, 32));
+	printf("Found %d at index: %d\n\n", 32, advanced_binary(array, size, 32));
 	printf("Found %d at index: %d\n\n", 0, advanced_binary(array, size, 0));
 	printf("Found %d at index: %d\n\n", 3, advanced_binary(array, size, 3));
 	printf("Found %d at index: %d\n\n", 11, advanced_binary(array, size, 11));
-	printf("Found %d at index: %d\n\n", 29, advanced_binary(array, size, 29));*/
+	printf("Found %d at index: %d\n\n", 29, advanced_binary(array, size, 29));
 	return (EXIT_SUCCESS);
 }
