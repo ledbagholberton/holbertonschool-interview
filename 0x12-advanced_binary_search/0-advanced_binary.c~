@@ -1,0 +1,44 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "search_algos.h"
+
+/**
+ * advanced binary search
+ *
+ * @array: pointer to the first element of the array to search
+ * @size: number of elements in array
+ * @value: value to search
+ * Return: Index where value is 
+**/
+int advanced_binary(int *array, size_t size, int value)
+{
+  size_t med_size, a, b;
+
+  if (array == NULL)
+    return (-1);
+  if (size > 0)
+    {
+      printf("Searching in array: ");
+      for (a = 0; a < size - 1; a++)
+	printf("%d, ", array[a]);
+      printf("%d\n", array[a]);
+      med_size = 1 + (size - 1) / 2;
+      if (array[med_size] == value)
+	//			while ((array[med_size] == array[med_size - 1]))
+	//				med_size = med_size - 1;
+	return ((int)med_size);
+      if (array[med_size] > value)
+	{
+	  size = med_size;
+	  return (advanced_binary(array, size, value));
+	}
+      else
+	{
+	  size = med_size;
+	  for (b = 0;  b < med_size; b++)
+	    array++;
+	  return (advanced_binary(array, size, value) + med_size);
+	}
+    }
+  return (-1);
+}
