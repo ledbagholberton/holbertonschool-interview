@@ -14,10 +14,10 @@ void bt_preorder(heap_t *tree, heap_t **node, size_t h, size_t level)
 	if (level == h)
 		*node = tree;
 	level = level + 1;
-	if (tree->right)
-		bt_preorder(tree->right, node, h, level);
 	if (tree->left)
 		bt_preorder(tree->left, node, h, level);
+	if (tree->right)
+		bt_preorder(tree->right, node, h, level);
 }
 /**
  * bt_height - return the height of tree
@@ -29,7 +29,7 @@ size_t bt_height(heap_t *tree)
 {
 	size_t right, left;
 
-	if (!tree || (!tree->left && !tree->right))
+	if ((!tree) || (!tree->left && !tree->right))
 		return (0);
 	right = bt_height(tree->right) + 1;
 	left = bt_height(tree->left) + 1;
@@ -69,7 +69,7 @@ int heap_extract(heap_t **root)
 			aux = aux->left;
 		}
 		else if (!aux->left || aux->left->n < aux->right->n)
-	{
+		{
 			value_aux = aux->n;
 			aux->n = aux->right->n;
 			aux->right->n = value_aux;
