@@ -1,19 +1,44 @@
 #include "binary_trees.h"
 /**
- * sorted_array_to_avl - Function  builds an AVL tree from an array
- *
- * @array: matrix i
- * @size: matrix j
- * Return: Pointer to root
- */
+ * heap_extract - extracts the root node from a Max Binary Heap
+ * @root: pointer to the heap root
+ * Return: value of extracted node
+ **/
 int heap_extract(heap_t **root)
 {
-	avl_t *head;
+	int value, value_aux;
+	heap_t *aux;
 
-	if (!array)
-		return (NULL);
-	if (size < 1)
-		return (NULL);
-	head = create_avl(NULL, array, 0, size - 1);
-	return (head);
+	if (!root || !*root)
+		return (0);
+	aux = *root;
+	value = aux->n;
+	if (!aux->left && !aux->right && !aux->parent)
+	{
+		free(aux);
+		return (value);
+	}
+	while (aux->left || aux->right)
+	{
+		if (aux->left && aux->right)
+		{
+			if (!aux->right || aux->left->n > aux->right->n)
+			{
+				value_aux = aux->n;
+				aux->n = aux->left->n;
+				aux->left->n = value_aux;
+				aux = aux->left;
+			}
+			else if (aux->left->n < aux->right->n)
+			{
+				value_aux = aux->n;
+				aux->n = aux->right->n;
+				aux->right->n = value_aux;
+				aux = aux->right;
+
+			}
+		}
+
+	}
+	return (value);
 }
