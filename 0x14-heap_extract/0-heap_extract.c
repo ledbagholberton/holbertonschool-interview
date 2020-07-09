@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- * binary_tree_preorder - ensure the righ location in childs
+ * bt_preorder - ensure the righ location in childs
  * @tree: pointer to tree
  * @node: pointer to node
  * @h: height of tree
@@ -20,11 +20,9 @@ void bt_preorder(heap_t *tree, heap_t **node, size_t h, size_t level)
 		bt_preorder(tree->left, node, h, level);
 }
 /**
- * binary_tree_preorder - ensure the righ location in childs
+ * bt_height - return the height of tree
  * @tree: pointer to tree
- * @node: pointer to node
- * @h: height of tree
- * @level: position of node in the tree
+ *
  * Return: Void function
  **/
 size_t bt_height(heap_t *tree)
@@ -32,12 +30,12 @@ size_t bt_height(heap_t *tree)
 	size_t right, left;
 
 	if (!tree || (!tree->left && !tree->right))
-		return(0);
+		return (0);
 	right = bt_height(tree->right) + 1;
 	left = bt_height(tree->left) + 1;
 	if (left > right)
-		return left;
-	return right;
+		return (left);
+	return (right);
 }
 /**
  * heap_extract - extracts the root node from a Max Binary Heap
@@ -47,7 +45,7 @@ size_t bt_height(heap_t *tree)
 int heap_extract(heap_t **root)
 {
 	int value, value_aux;
-	size_t level=0;
+	size_t level = 0;
 	heap_t *aux, *node;
 
 	if (!root || !*root)
@@ -69,9 +67,9 @@ int heap_extract(heap_t **root)
 			aux->n = aux->left->n;
 			aux->left->n = value_aux;
 			aux = aux->left;
-        }
+		}
 		else if (!aux->left || aux->left->n < aux->right->n)
-        {
+	{
 			value_aux = aux->n;
 			aux->n = aux->right->n;
 			aux->right->n = value_aux;
