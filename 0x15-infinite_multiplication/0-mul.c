@@ -45,7 +45,7 @@ int _strlen(char *s)
 
 int main(int argc, char *argv[])
 {
-	int i, j, tmp, l1, l2, l3, *a, *b, *ans;
+	int i, j, tmp, l1, l2, l3, *a, *b, *ans, z1 = 0, z2 = 0;
 
 	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
 		error();
@@ -61,12 +61,14 @@ int main(int argc, char *argv[])
 		a[j] = argv[1][i] - '0';
 		if (a[j] < 0 || a[j] > 9)
 			error();
+		z1 += a[j];
 		}
 	for (i = l2 - 1, j = 0; i >= 0; i--, j++)
 		{
 		b[j] = argv[2][i] - '0';
 		if (b[j] < 0 || b[j] > 9)
 			error();
+		z2 += b[j];
 		}
 	for (i = 0; i < l2; i++)
 		for (j = 0; j < l1; j++)
@@ -77,12 +79,35 @@ int main(int argc, char *argv[])
 		ans[i] = ans[i] % 10;
 		ans[i + 1] = ans[i + 1] + tmp;
 		}
-	for (i = l3 - 1; i >= 0; i--)
-		if (i != l3 - 1 || ans[i] != 0)
-			_putchar(ans[i] + '0');
-	_putchar('\n');
+	results(z1, z2, l3, ans);
 	free(a);
 	free(b);
 	free(ans);
 	return (0);
+}
+
+/**
+ * results - print results
+ *
+ * @z1: 0 if #1 is 0
+ * @z2: 0 if #2 is 0
+ * @l3: lenght of answer
+ * @ans: Pointer to answer
+ *
+ * Return: longitud of string
+ */
+
+void results(int z1, int z2, int l3, int *ans)
+{
+	int i;
+
+	if (z1 == 0 || z2 == 0)
+		_putchar('0');
+	else
+	{
+		for (i = l3 - 1; i >= 0; i--)
+			if (i != l3 - 1 || ans[i] != 0)
+				_putchar(ans[i] + '0');
+	}
+	_putchar('\n');
 }
