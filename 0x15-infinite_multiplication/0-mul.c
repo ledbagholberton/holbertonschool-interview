@@ -18,6 +18,26 @@ void error(void)
 }
 
 /**
+ * _strlen - value the longitud of string
+ *
+ * @s: Pointer to string
+ * Return: longitud of string
+ */
+
+int _strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while (*s != '\0')
+	{
+	s++;
+	i++;
+	}
+	return (i);
+}
+
+/**
  * main - check the code for Holberton School students.
  *
  *@argc: Counts arguments in argv
@@ -31,8 +51,8 @@ int main(int argc, char *argv[])
 
 	if (argc < 3 || argv[1] == NULL || argv[2] == NULL)
 		error();
-	l1 = strlen(argv[1]);
-	l2 = strlen(argv[2]);
+	l1 = _strlen(argv[1]);
+	l2 = _strlen(argv[2]);
 	l3 = l1 + l2;
 	ans = malloc(l3 * sizeof(int));
 	a = malloc(l1 * sizeof(int));
