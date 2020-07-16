@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	l1 = strlen(argv[1]);
 	l2 = strlen(argv[2]);
 	l3 = l1 + l2;
-	ans = (int *)calloc(l3, sizeof(int));
+	ans = malloc(l3 * sizeof(int));
 	a = malloc(l1);
 	b = malloc(l2);
 
