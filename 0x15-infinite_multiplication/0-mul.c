@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
 	l2 = strlen(argv[2]);
 	l3 = l1 + l2;
 	ans = malloc(l3 * sizeof(int));
-	a = malloc(l1);
-	b = malloc(l2);
+	a = malloc(l1 * sizeof(int));
+	b = malloc(l2 * sizeof(int));
 
 	for (i = l1 - 1, j = 0; i >= 0; i--, j++)
 		{
@@ -64,5 +64,8 @@ int main(int argc, char *argv[])
 		if (i != l3 - 1 || ans[i] != 0)
 			_putchar(ans[i] + '0');
 	_putchar('\n');
+	free(a);
+	free(b);
+	free(ans);
 	return (0);
 }
