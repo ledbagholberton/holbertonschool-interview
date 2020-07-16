@@ -27,8 +27,7 @@ void error(void)
 
 int main(int argc, char *argv[])
 {
-	int i, j, tmp, l1, l2, l3, *a, *b;
-	int *ans;
+	int i, j, tmp, l1, l2, l3, *a, *b, *ans;
 
 	if (argc < 3 || argv[1] == NULL || argv[2] == NULL)
 		error();
