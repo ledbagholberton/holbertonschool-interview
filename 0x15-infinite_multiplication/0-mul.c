@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 {
 	int i, j, tmp, l1, l2, l3, *a, *b, *ans;
 
-	if (argc < 3 || argv[1] == NULL || argv[2] == NULL)
+	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
 		error();
 	l1 = _strlen(argv[1]);
 	l2 = _strlen(argv[2]);
