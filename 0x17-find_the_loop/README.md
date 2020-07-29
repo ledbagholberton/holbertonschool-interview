@@ -1,0 +1,1 @@
+Here you will find the code in C for single linked list and Floyd Algo to detect Loops. Better known as Turtle & Hasse Algo.
