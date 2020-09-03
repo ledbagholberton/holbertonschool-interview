@@ -35,7 +35,6 @@ int main(void)
     List *list;
 
     list = NULL;
-    printf("Hola");
     add_node_end(&list, "Holberton");
     add_node_end(&list, "School");
     add_node_end(&list, "Full");
