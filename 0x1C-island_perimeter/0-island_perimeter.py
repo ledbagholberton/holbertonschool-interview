@@ -1,6 +1,11 @@
 """ island perimeter
 """
 
+#!/usr/bin/python3
+"""
+Function island parameter
+"""
+
 
 def island_perimeter(grid):
     """function perimeter
