@@ -38,7 +38,7 @@ void radix_sort(int *array, size_t size)
 			b_cnt[r] += 1;
 		}
 		ix = 0;
-		for (k = 0; k < size - 2; k++)
+		for (k = 0; k < 10; k++)
 		{
 			for (j = 0; j < b_cnt[k]; j++)
 			{
