@@ -23,16 +23,3 @@ def island_perimeter(grid):
                     a = a - 1
             b += a
     return b
-
-
-def move_grid(grid):
-    """function move_grid
-    """
-    size_h = len(grid)
-    size_w = len(grid[0])
-    g1 = [0] * (size_w + 2)
-    grid1 = [g1] * (size_h + 2)
-    for i in range(size_h):
-        for j in range(size_w):
-            grid1[i+1][j+1] = grid[i][j]
-    return grid1
