@@ -1,10 +1,8 @@
-""" island perimeter
-"""
-
 #!/usr/bin/python3
 """
 Function island parameter
 """
+
 
 def insert_bound(grid):
     """
@@ -16,7 +14,8 @@ def insert_bound(grid):
         i.insert(size_w, 0)
     g_i = [0] * len(grid[0])
     grid.insert(0, g_i)
-    grid.insert(len(grid)+ 1, g_i)
+    grid.insert(len(grid) + 1, g_i)
+
 
 def island_perimeter(grid):
     """function perimeter
