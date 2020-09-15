@@ -9,8 +9,8 @@
  **/
 void radix_sort(int *array, size_t size)
 {
-	size_t i;
-	int bucket[10][10], b_cnt[10], j, k, r, NOP = 0, divisor = 1, lar, pass;
+	size_t i, k;
+	int ix, bucket[10][10], b_cnt[10], j, r, NOP = 0, divisor = 1, lar, pass;
 
 	if (size < 2)
 		return;
@@ -27,7 +27,7 @@ void radix_sort(int *array, size_t size)
 	}
 	for (pass = 0; pass < NOP; pass++)
 	{
-		for (i = 0; i < 10; i++)
+		for (i = 0; i < size; i++)
 		{
 			b_cnt[i] = 0;
 		}
@@ -37,13 +37,13 @@ void radix_sort(int *array, size_t size)
 			bucket[r][b_cnt[r]] = array[i];
 			b_cnt[r] += 1;
 		}
-		i = 0;
-		for (k = 0; k < 10; k++)
+		ix = 0;
+		for (k = 0; k < size - 2; k++)
 		{
 			for (j = 0; j < b_cnt[k]; j++)
 			{
-			array[i] = bucket[k][j];
-			i++;
+				array[ix] = bucket[k][j];
+				ix++;
 			}
 		}
 		divisor *= 10;
