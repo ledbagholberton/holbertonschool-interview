@@ -24,8 +24,6 @@ int binary_tree_is_avl(const binary_tree_t *tree);
 void preorder_max_min(const binary_tree_t *tree, int *value);
 int binary_tree_is_bst(const binary_tree_t *tree);
 size_t binary_tree_height(const binary_tree_t *tree);
-size_t _height(const binary_tree_t *tree);
-int print_t(const binary_tree_t *tree, int offset, int depth, char **s);
 void binary_tree_print(const binary_tree_t *tree);
 
 
