@@ -9,22 +9,14 @@
 
 int wildcmp(char *s1, char *s2)
 {
-	int a1;
-	char b;
+	int cmp = 0;
 
-	a1 = 1;
-	b = '0';
-
-	if (s1 == s2)
+	if (*s1 == *s2 && *s1 != '\n')
 	{
-		b = *s1;
-		if (b == '0')
-			s1 = s2;
-		a1++;
+		cmp = 1;
+		wildcmp(s1 + 1, s2 + 1);
 	}
 	else
-	{
-		s1 = s2 + 2;
-	}
-	return (0);
+		cmp = 0;
+	return (cmp);
 }
