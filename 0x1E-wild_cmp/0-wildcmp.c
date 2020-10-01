@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * wildcmp - Compares two strings with wildcards
  *
@@ -11,19 +12,20 @@ int wildcmp(char *s1, char *s2)
 {
 	int cmp;
 
-	if (*s1 == '\n' && *s2 == '\n')
+	if (*s1 == '\0' || *s2 == '\0')
 	{
-		cmp = 1;
+		return (1);
 	}
 	else if (*s1 == *s2)
 	{
-		cmp = 1;
-		wildcmp(s1 + 1, s2 + 1);
+		cmp = wildcmp(s1 + 1, s2 + 1);
 	}
 	else if (*s2 == '*')
 	{
-		cmp = 1;
-		wildcmp(s1 + 1, s2);
+		if (*(s2 + 1) == *s1)
+			cmp = wildcmp(s1 + 1, s2 + 2);
+		else
+			cmp = wildcmp(s1 + 1, s2);
 	}
 	else
 		cmp = 0;
