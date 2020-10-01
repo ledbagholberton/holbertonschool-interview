@@ -10,6 +10,7 @@
 int wildcmp(char *s1, char *s2)
 {
 	int cmp;
+
 	if (*s1 == '\n' && *s2 == '\n')
 	{
 		cmp = 1;
