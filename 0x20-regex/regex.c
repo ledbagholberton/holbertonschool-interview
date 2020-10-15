@@ -11,8 +11,21 @@
  */
 int regex_match(char const *str, char const *pattern)
 {
+	int i = 0;
+
 	if (strcmp(str, pattern) == 0)
 		return (1);
-	else
+	if (strchr(str, '*') != NULL || strchr(str, '.') != NULL)
 		return (0);
+	else
+	{
+		while (str[i])
+		{
+			if (str[i] == pattern[i] || pattern[i] == '.')
+				i++;
+			else
+				return (0);
+		}
+	}
+	return (1);
 }
