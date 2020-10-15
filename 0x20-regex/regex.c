@@ -15,9 +15,13 @@ int regex_match(char const *str, char const *pattern)
 
 	if (strcmp(str, pattern) == 0)
 		return (1);
+	if (pattern[0] == '.' && pattern[1] == '*' && pattern[2] == '\n')
+		return (1);
 	if (strchr(str, '*') != NULL || strchr(str, '.') != NULL)
 		return (0);
-	else
+	if (!strchr(pattern, '.') && !strchr(pattern, '*'))
+		return (0);
+	if (strchr(pattern, '.') && !strchr(pattern, '*'))
 	{
 		while (str[i])
 		{
